@@ -1,0 +1,26 @@
+﻿@model List<ZeroHu.DTOs.RestaurantDTO>
+
+<h2>All Restaurants</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Restaurant ID</th>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model)
+        {
+            <tr>
+                <td>@restaurant.RestaurantID</td>
+                <td>@restaurant.Name</td>
+                <td>@restaurant.Password</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to Dashboard", "Dashboard")
+</div>

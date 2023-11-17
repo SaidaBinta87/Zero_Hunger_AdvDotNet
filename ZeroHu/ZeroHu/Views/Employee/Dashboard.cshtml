@@ -1,0 +1,47 @@
+﻿@model List<ZeroHu.DTOs.CollectRequestDTO>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Collect Request ID</th>
+            <th>Item Name</th>
+            <th>Max Preserve Time</th>
+            <th>Restaurant</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var collectRequest in Model)
+        {
+            <tr>
+                <td>@collectRequest.CollectRequestID</td>
+                <td>@collectRequest.ItemName</td>
+                <td>@collectRequest.MaxPreserveTime</td>
+                <td>@collectRequest.Restaurant</td>
+                <td>@collectRequest.Status</td>
+                <td>
+                    @using (Html.BeginForm("CompleteRequest", "Employee", FormMethod.Post))
+                    {
+                        @Html.Hidden("collectRequestId", collectRequest.CollectRequestID)
+                        <input type="submit" value="Complete" class="btn btn-success" />
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No assigned collect requests.</p>
+}
+
+
+<div>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("AllRestaurants", "Employee")'">All Restaurants</button>
+</div>

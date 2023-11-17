@@ -1,0 +1,30 @@
+﻿@model List<ZeroHu.DTOs.EmployeeDTO>
+
+<h2>All Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeID</td>
+                <td>@employee.Name</td>
+                <td>@employee.Availability</td>
+                <td>@employee.Status</td>
+                <td>@employee.Password</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to Dashboard", "Dashboard")
+</div>

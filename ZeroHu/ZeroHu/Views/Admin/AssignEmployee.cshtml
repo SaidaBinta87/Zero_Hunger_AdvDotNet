@@ -1,0 +1,19 @@
+﻿@model ZeroHu.DTOs.CollectRequestDTO
+
+@using (Html.BeginForm("AssignEmployee", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="employeeId">Employee ID:</label>
+        <input type="text" name="employeeId" required />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Assign Employee" class="btn btn-primary" />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to Dashboard", "Dashboard", "Admin")
+</p>
